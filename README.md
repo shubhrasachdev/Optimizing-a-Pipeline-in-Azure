@@ -26,6 +26,8 @@ The hyperdrive run involves a series of steps to be completed in order to reach 
 
 As a result of this run, we achieve an accuracy of 91.55% for C = 1 and max_iter = 50.
 
+![Hyperdrive Run](images/Hyperdrive-1.png)![Hyperdrive Run](images/hyperdrive-2.png)
+
 **What are the benefits of the chosen parameter sampler?**
 
 Random Sampler promotes and supports early termination policies over a range, and allows picking a random value from a given range. This allows for tuning a hyperparameter more efficiently, as the sampler does not go through ever single value in the range. Hence, it is possible to train an optimal model in a shorter period of time.
@@ -69,3 +71,16 @@ Here is a XGBoost Classifier part of the voting ensemble, along with its hyperpa
  'verbosity': 0}
  ```
  
+![AutoML Run](images/automl-accuracy.png)
+
+## Pipeline Comparison
+The hyperdrive pipeline run with a Logistic Regression model gives an accuracy of 91.55% which is slightly less than the one presented by the VotingEnsemble model of the AutoML run - 91.69%.
+There are some differences in the architecture of both the pipelines:
+1. Hyperdrive only performs hyperparameter tuning for the chosen model, which in our case is Logistic Regression. On the other hand, AutoML performs hyperparameter tunes all the models it utilizes.
+2. Cross validation is performed in the case of AutoML with the value of cross validations = 5, such that each time a randomly sampled fraction (1/5 in our case) of data acts as the test set, and the rest as the train test. However such cross validation is not performed in the case of Hyperdrive pipeline, which only consists of a 20:80 split to estimate the accuracy of each run.
+
+## Future Work
+The pipelines were run with the primary metric of Accuracy, which may not be an efficient measure of the performance of a model on an imbalanced dataset. Thus, in the future,  similar runs can be implemented with AUC_Weighted as the primary metric. Other than that, more focus can be put on preprocessing tasks like cleaning the data, removal of outliers, etc. We should also pay attention to the feature importance as explained by the best performing AutoML model.
+
+## Proof of cluster cleanup
+![cluster cleanup](images/Proof-Of-Cluster-Cleanup.png)
