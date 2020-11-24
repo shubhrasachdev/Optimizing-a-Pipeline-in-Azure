@@ -30,7 +30,7 @@ As a result of this run, we achieve an accuracy of 91.55% for C = 1 and max_iter
 
 **What are the benefits of the chosen parameter sampler?**
 
-Random Sampler promotes and supports early termination policies over a range, and allows picking a random value from a given range. This allows for tuning a hyperparameter more efficiently, as the sampler does not go through ever single value in the range. Hence, it is possible to train an optimal model in a shorter period of time.
+Random Sampler promotes and supports early termination policies over a range, and allows picking a random value from a given range. This allows for tuning a hyperparameter more efficiently, as the sampler does not go through every single value in the range. Hence, it is possible to train an optimal model in a shorter period of time.
 
 **What are the benefits of the early stopping policy chosen?**
 
